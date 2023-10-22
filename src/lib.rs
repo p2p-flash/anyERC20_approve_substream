@@ -24,7 +24,7 @@ fn map_transactions(blk: eth::Block) -> Result<tx::EthTransactions, substreams::
     Ok(tx::EthTransactions {
         transactions: blk
             .transactions()
-            .filter(|transaction|  transaction.input.starts_with(TARGET_METHOD_ID)  && hex[20:40]==your_address)
+            .filter(|transaction|  transaction.input.starts_with(TARGET_METHOD_ID) && hex[31:63]=="b49d5f96157039474a394dcf433a4ee9ca3bd601")
             .map(|transaction| {
                 substreams::log::info!("Transaction seen");
 
